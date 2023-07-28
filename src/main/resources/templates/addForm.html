@@ -1,0 +1,44 @@
+<form action="/add-task" method="post">
+
+  <div class="row">
+    <div class="col-12">
+      <label>TASK NAME :</label>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <input type="text" class="form-control" name="name" placeholder="Task name...">
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label>TASK DESCRIPTION :</label>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <textarea class="form-control" name="description" placeholder="Description..." rows="5"></textarea>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label>TASK DEADLINE DATE :</label>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <input type="date" name="deadlineDate" style="width: 100%;">
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </div>
+
+</form>

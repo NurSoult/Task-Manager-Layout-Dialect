@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="main_layout.html">
+
+
+<div layout:fragment="siteContent">
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+
+            <form action="/save-task" method="post">
+
+
+                <input type="hidden" name="id" th:value="${task.id}">
+
+                <div class="row">
+                    <div class="col-12">
+                        <label>TASK NAME :</label>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="name" th:value="${task.name}">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>TASK DESCRIPTION :</label>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <textarea class="form-control" name="description" rows="5" th:text="${task?.description}"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>TASK DEADLINE DATE :</label>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="date" name="deadlineDate" style="width: 100%;" th:value="${task.deadlineDate}">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>Status :</label>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <select name="isCompleted" class="form-select" th:field="${task.completed}">
+                            <option th:value="true">YES</option>
+                            <option th:value="false">NO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-3 " data-bs-toggle="modal" data-bs-target="#editTask">
+                    SAVE
+                </button>
+                <button type="button" class="btn btn-danger mt-3 ms-2" data-bs-toggle="modal" data-bs-target="#delete-task">
+                    DELETE
+                </button>
+
+
+            </form>
+
+
+
+            <div class="modal fade" id="delete-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <form action="/delete-task" method="post">
+                            <input type="hidden" name="delete_id" th:value="${task.id}">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Are you sure to delete?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                                <button class="btn btn-danger">YES</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+</html>
